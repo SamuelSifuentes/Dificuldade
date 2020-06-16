@@ -9,6 +9,14 @@ let months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Ou
 let monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
 
+// window.addEventListener("load", function(event) {
+//     if(localStorage.getItem('tarefas')){
+//         var i =JSON.parse(  localStorage.getItem('tarefas'));
+//         i.forEach(element => {
+//             console.log(element)
+//         });
+//       }
+//   });
 
 function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
@@ -45,10 +53,16 @@ function dateClick(dia,mes,ano){
           
         $('#myModal').modal('show');
 }
+
 function Save(dia,mes,ano){
     $('#myModal').modal('hide')
+    let tarefas= new Array;
+    tarefas
+    // if(localStorage.getItem('tarefas')){
+    //     tarefas.push(localStorage.getItem('tarefas'));
+    // }
+    // localStorage.setItem("tarefas",tarefas);
     let tarefa = document.getElementById("afazer").value
-    console.log(dia+mes+ano);
     let tbl = document.getElementById("lista-marcacoes");
     let div = document.createElement("div")
     let data  = document.createElement("div")
@@ -56,6 +70,9 @@ function Save(dia,mes,ano){
     let br = document.createElement("br")
     data.appendChild(document.createTextNode("data: "+dia+"/"+mes+"/"+ano))
     valor.appendChild(document.createTextNode("Tarefa: "+ tarefa))
+    
+    // tarefas.push(JSON.stringify({dia:dia,mes:mes,ano:ano,tarefa:tarefa}));
+    
     div.appendChild(data)
     div.appendChild(valor)
     div.appendChild(br)
