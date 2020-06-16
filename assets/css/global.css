@@ -6,12 +6,16 @@ body {
   display: block;
   background-color: #eee;
 }
-
+.title{
+  font-size: 54px;
+  font-weight: bolder;
+  text-shadow: pink 4px 2px 5px;
+}
 .navigation-bar{
   z-index: 22;
   display: flex;
   top: 0;
-  margin-top: 15px;
+
   position: sticky;
   background-color: #a0a0a0;
   width: 100%;
