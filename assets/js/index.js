@@ -49,7 +49,7 @@ function Save(dia,mes,ano){
     $('#myModal').modal('hide')
     let tarefa = document.getElementById("afazer").value
     console.log(dia+mes+ano);
-    let tbl = document.getElementById("lista-marcaçoes");
+    let tbl = document.getElementById("lista-marcacoes");
     let div = document.createElement("div")
     let data  = document.createElement("div")
     let valor = document.createElement("div")
