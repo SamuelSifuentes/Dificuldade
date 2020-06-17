@@ -155,3 +155,20 @@ body {
   background: #1abc9c;
   color: white !important
 }
+
+.Sobre-title{
+  font-size: 30px;
+  font-weight: 900;
+  text-shadow: lightblue 2px 3px 2px;
+}
+.item{
+  position: relative;
+}
+.x{
+  position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #000;
+}

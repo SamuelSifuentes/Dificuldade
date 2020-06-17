@@ -9,14 +9,16 @@ let months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Ou
 let monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
 
-// window.addEventListener("load", function(event) {
-//     if(localStorage.getItem('tarefas')){
-//         var i =JSON.parse(  localStorage.getItem('tarefas'));
-//         i.forEach(element => {
-//             console.log(element)
-//         });
-//       }
-//   });
+window.addEventListener("load", function(event) {
+    if(localStorage.getItem('tarefas')){
+        var i =new Array();
+        i = JSON.parse(  localStorage['tarefas']);
+        i.forEach(element => {
+            let obj = JSON.parse(element)
+            Save(obj.dia,obj.mes,obj.ano,obj.tarefa);
+        });
+      }
+  });
 
 function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
@@ -54,29 +56,51 @@ function dateClick(dia,mes,ano){
         $('#myModal').modal('show');
 }
 
-function Save(dia,mes,ano){
+function Save(dia,mes,ano,value = null){
     $('#myModal').modal('hide')
-    let tarefas= new Array;
-    tarefas
-    // if(localStorage.getItem('tarefas')){
-    //     tarefas.push(localStorage.getItem('tarefas'));
-    // }
-    // localStorage.setItem("tarefas",tarefas);
-    let tarefa = document.getElementById("afazer").value
+    let tarefas = new Array();
+    
+    if(localStorage.getItem('tarefas')){
+        tarefas = (JSON.parse(  localStorage['tarefas']));
+    }
+    
+    let tarefa 
+    
     let tbl = document.getElementById("lista-marcacoes");
     let div = document.createElement("div")
     let data  = document.createElement("div")
     let valor = document.createElement("div")
     let br = document.createElement("br")
+    let removeItem = document.createElement("div")
+    let xicon = document.createElement("i")
+    if(value != null){
+        tarefa = value
+    }else{
+        tarefa = document.getElementById("afazer").value
+        tarefas.push(JSON.stringify({dia:dia,mes:mes,ano:ano,tarefa:tarefa}));
+        localStorage.setItem("tarefas",JSON.stringify(tarefas));
+    }
     data.appendChild(document.createTextNode("data: "+dia+"/"+mes+"/"+ano))
     valor.appendChild(document.createTextNode("Tarefa: "+ tarefa))
-    
-    // tarefas.push(JSON.stringify({dia:dia,mes:mes,ano:ano,tarefa:tarefa}));
     
     div.appendChild(data)
     div.appendChild(valor)
     div.appendChild(br)
+    xicon.className = "fa fa-times"
+    // xicon.onclick = function (){
+    //     var i = tarefas.indexOf(tarefa);
+    //     tarefas.splice(i);
+    // }
+    removeItem.appendChild(xicon)
+    removeItem.className = ("x")
+    div.appendChild(removeItem)
+    div.className = "item";
     tbl.appendChild(div);
+    
+
+    
+    
+    
 }
 function showCalendar(month, year) {
 
