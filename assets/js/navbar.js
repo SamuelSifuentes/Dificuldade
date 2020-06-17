@@ -1,5 +1,5 @@
 function navigateTo(route){
     let navigate
-    navigate = "/src" + route
+    navigate = route
     window.location.replace(navigate);
 }
