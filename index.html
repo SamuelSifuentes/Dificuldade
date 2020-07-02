@@ -21,14 +21,14 @@
   <div class="navigation-bar">
     <div class="first-section">
       <div class="img-menu" onclick="navigateTo('/index.html')">
-        <img class="h-75 w-auto" src="./assets/images/151770.png" alt="">
-    </div>
-    <div class="item-menu" onclick="navigateTo('/index.html')">
-        Menu
-    </div>
-    <div class="item-menu " onclick="navigateTo('/sobre.html')">
-        Sobre
-    </div>
+        <img class="h-75 w-auto" src="./assets/images/Logo/peq.png" alt="">
+      </div>
+      <div class="item-menu" onclick="navigateTo('/index.html')">
+          Menu
+      </div>
+      <div class="item-menu " onclick="navigateTo('/sobre.html')">
+          Sobre
+      </div>
      <!-- <div class="item-menu">
       Menu
      </div> 
@@ -75,13 +75,13 @@
   
           <div class="form-inline d-flex px-4">
   
-              <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">Previous</button>
+              <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">Anterior</button>
   
-              <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Next</button>
+              <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Próximo</button>
           </div>
           <br/>
           <form class="form-inline">
-              <label class="lead mr-2 ml-2" for="month">Jump To: </label>
+              <label class="lead mr-2 ml-2" for="month">Ir para: </label>
               <select class="form-control col-sm-4" name="month" id="month" onchange="jump()">
                   <option value=0>Jan</option>
                   <option value=1>Feb</option>
@@ -98,7 +98,8 @@
               </select>
   
   
-              <label for="year"></label><select class="form-control col-sm-4" name="year" id="year" onchange="jump()">
+              <label for="year"><p class="mb-0 mx-2"> de </p></label>
+              <select class="form-control col-sm-4" name="year" id="year" onchange="jump()">
               <option value=1990>1990</option>
               <option value=1991>1991</option>
               <option value=1992>1992</option>
@@ -161,6 +162,8 @@
           </div>
           <div id="modal-body" class="modal-body">
               <div id="data-total-modal"></div>
+              <div id="data-final"></div>
+              <div id="urgencia"></div>
               <div id="comentario"></div>
           </div>
           <div class="modal-footer" id="modal-footer">

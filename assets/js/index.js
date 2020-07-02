@@ -4,7 +4,7 @@ let currentYear = today.getFullYear();
 let selectYear = document.getElementById("year");
 let selectMonth = document.getElementById("month");
 
-let months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+let months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
 let monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
@@ -41,23 +41,38 @@ function jump() {
     currentMonth = parseInt(selectMonth.value);
     showCalendar(currentMonth, currentYear);
 }
-function dateClick(dia, mes, ano) {
-    var x = dia
-    console.log(dia)
-    $("#modal-footer").html("<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>")
-    let tbl = document.getElementById("modal-footer");
-    let btn = document.createElement("buttom");
-    btn.classList.add("btn")
-    btn.classList.add("btn-primary")
-    btn.onclick = function () {
-        Save(dia.data, mes, ano)
-    }
-    btn.appendChild(document.createTextNode("Save"))
-    tbl.appendChild(btn)
-    $("#data-total-modal").html("Dia: " + dia.data + " Mes: " + mes + " Ano: " + ano + "<br>Digite sua tarefa");
-    $("#comentario").html("<textarea id='afazer' rows='4' cols='50' name='comment' form='usrform'></textarea>");
+function dateClick(dia,mes,ano){
+        var x = dia
+        console.log(dia)
+        $("#modal-footer").html("<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>")
+        let tbl = document.getElementById("modal-footer");
+        let btn = document.createElement("button");
+        btn.classList.add("btn")
+        btn.classList.add("btn-primary")
+        btn.onclick= function(){
+            Save(dia.data,mes,ano)
+        }
+        btn.appendChild( document.createTextNode("Save"))
+        tbl.appendChild(btn)
+        $("#data-total-modal").html("Dia: "+ dia.data+ " Mes: " + mes+" Ano: "+ ano);
+        $("#data-final").html(`<br><label for="dataFinal">Para quando:</label>
+                                <input type="date" id="dataFinal" name="dataFinal">
+                                <input type="time" id="tempoFinal" name="tempoFinal">
+                            `);
+        $("#urgencia").html(`<br><label for="urgencia">Nivel de urgência:</label>
 
-    $('#myModal').modal('show');
+                            <select name="urgencia" id="urgencia">
+                                <option value="">Selecione uma opção</option>
+                                <option value="1">Baixa</option>
+                                <option value="2">Média</option>
+                                <option value="3">Alta</option>
+                                <option value="4">Muito Alto</option>
+                            </select>
+                            
+                            `);
+        $("#comentario").html("<br>Digite sua tarefa:<textarea id='afazer' rows='4' cols='50' name='comment' form='usrform'></textarea>");
+          
+        $('#myModal').modal('show');
 }
 
 function Save(dia, mes, ano, value = null) {
@@ -113,9 +128,27 @@ function Save(dia, mes, ano, value = null) {
     }else{
         alert('Digite um valor')
     }
+    data.appendChild(document.createTextNode("Data: "+dia+"/"+mes+"/"+ano))
+    valor.appendChild(document.createTextNode("Tarefa: "+ tarefa))
+    
+    div.appendChild(data)
+    div.appendChild(valor)
+    div.appendChild(br)
+    xicon.className = "fa fa-times"
+    // xicon.onclick = function (){
+    //     var i = tarefas.indexOf(tarefa);
+    //     tarefas.splice(i);
+    // }
+    removeItem.appendChild(xicon)
+    removeItem.className = ("x")
+    div.appendChild(removeItem)
+    div.className = "item";
+    tbl.appendChild(div);
+    
 
-
-
+    
+    
+    
 }
 function showCalendar(month, year) {
 
