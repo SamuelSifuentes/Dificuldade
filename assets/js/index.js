@@ -128,23 +128,7 @@ function Save(dia, mes, ano, value = null) {
     }else{
         alert('Digite um valor')
     }
-    data.appendChild(document.createTextNode("Data: "+dia+"/"+mes+"/"+ano))
-    valor.appendChild(document.createTextNode("Tarefa: "+ tarefa))
-    
-    div.appendChild(data)
-    div.appendChild(valor)
-    div.appendChild(br)
-    xicon.className = "fa fa-times"
-    // xicon.onclick = function (){
-    //     var i = tarefas.indexOf(tarefa);
-    //     tarefas.splice(i);
-    // }
-    removeItem.appendChild(xicon)
-    removeItem.className = ("x")
-    div.appendChild(removeItem)
-    div.className = "item";
-    tbl.appendChild(div);
-    
+
 
     
     
